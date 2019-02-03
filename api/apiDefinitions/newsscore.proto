@@ -1,0 +1,11 @@
+syntax  = "proto3";
+
+package newsscore;
+
+message Sentiment {
+	double score = 1;
+}
+
+service SentimentService {
+	rpc StreamSentimentScores(stream Sentiment) returns (stream Sentiment);
+}
