@@ -1,11 +1,16 @@
-syntax  = "proto3";
+// newsscore.proto
+package buythedip;
 
-package newsscore;
+syntax = "proto3";
 
-message Sentiment {
+message SentimentRequest {
+	string summary = 1;
+}
+
+message SentimentResponse {
 	double score = 1;
 }
 
 service SentimentService {
-	rpc StreamSentimentScores(stream Sentiment) returns (stream Sentiment);
+	rpc getScore(SentimentRequest) returns (SentimentResponse) {}
 }
